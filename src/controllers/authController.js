@@ -1,3 +1,4 @@
+import { MONGO_URL } from "../config.js";
 import User from "../models/User.js";
 import generateToken from "../utils/generarToken.js";
 
@@ -54,10 +55,16 @@ export const register = async (req, res,next) => {
       },
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
+    console.error("REGISTER ERROR:");
+  console.error(error);
+
+  res.status(500).json({
+    success: false,
+    message: error.message,
+    stack: error.stack,
+    url:MONGO_URL
+  });
+
   }
 };
 
