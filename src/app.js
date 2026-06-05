@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import { errorHandler, notFound } from './middlewares/errorMiddleware.js';
 import User from "./routes/authRoutes.js";
 import Products from './routes/productRoutes.js'
+import {MONGO_URL} from './config.js'
 
 const app = express();
 
