@@ -16,6 +16,24 @@ app.use(express.json());
 // res.send("Ruta no encontrada");
 // return res.status(404).json({message:"Home"});
 // }); 
+app.get("/debug", async (req, res) => {
+  try {
+
+    const mongoose = await import("mongoose");
+
+    const state = mongoose.default.connection.readyState;
+
+    return res.json({
+      mongoURLExiste: !!process.env.MONGO_URL,
+      estadoConexion: state, // 0 = desconectado, 1 = conectado
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message
+    });
+  }
+});
 
 
 app.use("/api/auth", User);
