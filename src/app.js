@@ -13,10 +13,6 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 
-// app.use("/",(req,res)=>{
-// res.send("Ruta no encontrada");
-// return res.status(404).json({message:"Home"});
-// }); 
 app.get("/debug", async (req, res) => {
   try {
 
