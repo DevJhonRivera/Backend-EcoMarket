@@ -16,7 +16,7 @@ router.put("/profile",protect,updateProfile);
 
 router.put("/change-password",protect,changePassword);
 
-router.delete("/deactivate",protect,deactivateAccount);
+router.delete("/deactivate" ,protect,deactivateAccount);
 
 
 export default router;
